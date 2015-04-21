@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <body>
+        <!-- Picks a color -->
+        <input type="color"/>
+
+        <input type="date"/>
+        <input type="time"/>
+        <input type="datetime" />
+        <input type="datetime-local"/>
+        <input type="month"/>
+        <input type="week"/>
+        <input type="email"/>
+        <input type="url"/>
+        <input type="number"/>
+        <input type="search" />
+        <input type="range" />
+        <!-- Form does not validate -->
+        <form novalidate>
+        </form>
+
+        <form>
+            <label for="devExperienceRange">Development Experience Range:</label>
+            <input type="range"
+                    id="yearsInDev" name="yearsInDev"
+                    min="5" max="40" step="2"/>
+            <span id="rangeValue">50</span>
+
+            <label for="tShirtColor">T-Shirt Color</label>
+            <input type="text"
+                    id="tShirtColor" name="tShirtColor"
+                    list="colors" />
+            <datalist id="colors">
+                <option value="Blue"></option>
+                <option value="Green"></option>
+                <option value="Red"></option>
+            </datalist>
+
+            <label for="arrivalDate">Arrival Date</label>
+            <input type="date" 
+                    id="arrivalDate" name="arrivalDate"
+                    value="2011-01-01" min="2011-01-01" max="2021-12-31"/>
+        </form>
+
+        <form>
+            <h4>Change Email Address</h4>
+            
+            <input type="text"
+                    id="userName" name="userName"
+                    pattern="[a-zA-Z]{5,}" 
+                    placeholder="userName"
+                    maxlength="30" required />
+            <div class="invalid">
+                The required user name may only contain a series of alphabetical characters.
+            </div>
+
+            <input type="email"
+                    id="email" name="email"
+                    placeholder="email" required />
+            <div class="invalid">
+                The required email address may not include any special 
+                characters except for the '@' sign.
+            </div>
+
+            <button type="submit" id="submit" name="submit" class="submit"></button>
+
+        </form>
+
+
+
+    </body>
+</html>

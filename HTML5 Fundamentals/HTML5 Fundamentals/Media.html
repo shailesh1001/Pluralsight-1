@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+    <body>
+        <h4>Video</h4>
+        <video loop preload="auto" poster="../imageToShow.png" width="320">
+            <source src="../file/location/nameOfFile.mp4"/>
+            <source src="../file/location/nameOfFile.ogv"/>
+            <source src="../file/location/nameOfFile.webm"/>
+        </video>
+        
+        <div>
+            <input type="range"
+                    id="scrubber"
+                    min="0" max="60"
+                    value="0" step ="1"/>
+            <span id="remainingTime">0:00</span>/
+            <span id="totalTime">0:00</span>
+        </div>
+        <div>
+            <button class="btn" id="playPause">Play</button>
+            <button class="btn" id="stop">Stop</button>
+            <button class="btn" id="begin">&lt;&lt;</button>
+            <button class="btn" id="rewind">&lt;</button>
+            <button class="btn" id="fastForward">&gt;</button>
+            <button class="btn" id="end">&gt;&gt;</button>
+        </div>
+        <div>
+            <input type="range" id="volume" min="0" step="0.1" max="1"/>
+            <button class="btn" id="mute">Mute</button>
+        </div>
+        <div>
+            Speed <input type="range"
+                         id="playbackRate"
+                         min="1" value="1"
+                         step="1" max="4" />
+        </div>
+
+        <br />
+        <span class="btn-mini">Video courtesy of
+            <a href="http://ww.bigbunny.org/">Big Buck Bunny</a>
+        </span>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <h4>Audio</h4>
+        <audio controls autoplay>
+            <source src="../file/location/nameOfFile.mp3"/>
+            <source src="../file/location/nameOfFile.ogg"/>
+            <source src="../file/location/nameOfFile.wav"/>
+        </audio>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+C:\Users\louie\Desktop\HTML5 Fundamentals\HTML5 Fundamentals\bin\HTML5 Fundamentals.dll.config
+C:\Users\louie\Desktop\HTML5 Fundamentals\HTML5 Fundamentals\bin\HTML5 Fundamentals.dll
+C:\Users\louie\Desktop\HTML5 Fundamentals\HTML5 Fundamentals\bin\HTML5 Fundamentals.pdb
+C:\Users\louie\Desktop\HTML5 Fundamentals\HTML5 Fundamentals\obj\Debug\HTML5 Fundamentals.csprojResolveAssemblyReference.cache
+C:\Users\louie\Desktop\HTML5 Fundamentals\HTML5 Fundamentals\obj\Debug\HTML5 Fundamentals.dll
+C:\Users\louie\Desktop\HTML5 Fundamentals\HTML5 Fundamentals\obj\Debug\HTML5 Fundamentals.pdb

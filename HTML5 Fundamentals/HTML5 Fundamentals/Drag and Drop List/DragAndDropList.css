@@ -1,0 +1,37 @@
+﻿/***********************/
+/*Draggable CSS styling*/
+/***********************/
+.list-container{
+    background-color: #dddddd;
+    height: 50em;
+    width: 20em;
+    padding: .5em;
+}
+.moveable{
+    list-style: none;
+}
+.moveable li{
+    margin: 1em;
+    border: 1px solid #000000;
+    background-color: #cccccc;
+    cursor: move;
+}
+
+
+[draggable="true"]{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    /*Support old versions of webkit*/
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+}
+
+.drag{
+    opacity: .25;
+}
+.over{
+
+}

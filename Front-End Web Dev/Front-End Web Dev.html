@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<!-- div = rectangular container. span = in-line container 
+	
+	these are commentsssss
+	
+	-->
+	<head>
+		<title>Github Hub</title>
+		<!-- [if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<nav>
+				<!--
+					<ol>
+						<li><a href="/index.html">Home</a></li>
+						<li><a href="/contact.html">Contact</a></li>
+						<li><a href="/about.html">About</a></li>
+					</ol>
+				-->
+					<ul>
+						<li><a href="/index.html">Home</a></li>
+						<li><a href="/contact.html">Contact</a></li>
+						<li><a href="/about.html">About</a></li>
+					</ul>
+				</nav>
+				<div><h1><img src="logo.bmp" class="bordered-image">Github Hub</h1></div>
+				<div>This is a site to search Github for interesting projects</div>
+			</header>
+			<section id="main">
+				<p>In this <em>sample site</em>, we'll show a list of <a href="http://github.com">Github</a> projects <span>and the data</span> about <strong>those projects</strong>.</p>
+				
+				<form action="http://wilder.azurewebsite.net/echo" method="POST"
+				class="bordered-image simple-form">
+					<label for="searchPhrase">Search Phrase:</label>
+					<input type="textbox" name="searchPhrase" id="searchPhrase"/><br/>
+					<input type="checkbox" name="useStars" id="useStars" checked="true" /><label for="useStars"> Use Stars?</label>
+					<br/> 
+					Language:<select name="langChoice" id="langChoice">
+						<option>All</option>
+						<option>Javascript</option>
+						<option selected>C#</option>
+						<option>Java</option>
+						<option>Ruby</option>
+					</select>
+					<br/>
+					<input type="select" name="useStars" checked="true" /> 
+					<input type="submit" value="search" />
+				</form>
+				<div id="results" class="bordered-image">
+					This is where results will live.... eventually.
+				</div>
+			</section>
+			<footer>
+				&copy; 2014 Testing LLC <!-- These are some special chars: &gt; &lt; &#937 -->
+			</footer>
+		</div>
+		<script type="text/javascript">
+			var msg = "hello javascript";
+			console.log(msg);
+			
+			var resultsDiv = document.getElementById("results");
+			resultsDiv.innerHTML = "<p>This is from JavaScript</p>";
+			
+			console.log("msg is " + typeof(msg));
+			console.log("resultsDiv is " + typeof(resultsDiv));
+			
+			var none;
+			console.log("none is " + typeof(none));
+			
+			var aNumber = 10;
+			console.log("aNumber is " + typeof(aNumber));
+			
+			var trueFalse = true;
+			console.log("trueFalse is " + typeof(trueFalse));
+			
+			<!-- Conditionals -->
+			if (none == undefined){
+				console.log("none is undefined");
+			}
+			
+			if (aNumber == 10){
+				console.log("This is true");
+			}
+			
+			if (aNumber == "10"){
+				console.log("This is true");
+			}
+			
+			if (aNumber === "10"){
+				console.log("This is false");
+			}
+			
+			<!-- this method gets overwritten by the following method because they share the same name -->
+			function showMsg(msg){
+				console.log("showMsg: " + msg);
+			}
+			
+			function showMsg(msg, more){
+				if (more){
+					console.log("showMsg: " + msg + more);
+				} else{
+					console.log("showMsg: " + msg);
+				}
+			}
+			showMsg("some information");
+			showMsg("some information", " and even more");
+			
+			var showIt = function(msg){
+				console.log(msg);
+			}
+			showIt("some message");
+			
+			function showItThen(msg, callback){
+				showIt(msg);
+				callback();
+			}
+			showItThen("showItThen called", function () {
+				console.log("callback called");
+			});
+			
+			var inGlobal = true;
+			function testMe() {
+				console.log("testMe(): " + someMsg);
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

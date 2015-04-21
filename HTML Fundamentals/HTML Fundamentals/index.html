@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello HTML</title>
+    <meta name="Author" content="Jon Louie" />
+    <meta name="keywords" content="Pluralsight, Sample, HTML" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+    <script type="text/javascript">
+        window.onload = function () {
+            //alert("window loaded");
+            document.getElementById("myMessage").innerHTML = "Hello, Javascript";
+        };
+    </script>
+    <style type="text/css">
+        body {
+            color: red;
+        }
+        .message {
+            color: green;
+        }
+    </style>
+    <!--
+    <base href="http://www.pluralsight.com/" />
+        -->
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+
+<body>
+    <p id="myMessage" class="message"> Hello, World! </p>
+</body>
+
+
+</html>

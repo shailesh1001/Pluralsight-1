@@ -1,0 +1,19 @@
+
+
+
+
+When entering an invalid password, it is possible to have a single red asterisk marking the Password field while the Confirm Password field is marked by two red asterisks. The Password field, as far I have seen, is unable to have more than one red asterisk marking it. 
+	-In Password field, enter an invalid password 
+	-In Confirm Password field, enter an invalid password that does not match Password field. 
+	-Confirm Password field will receive an asterisk for being invalid and another for not matching
+
+
+Password failed attempt counter incremeted twice because failed password attempt is increased once during validation method call and again after validation method has returned a false value
+	-Lines 155-159 in Login.ascx.cs
+	-ValidateUser and UpdatePasswordAttempt methods in Customer.cs
+
+
+Password age is checked in 
+-CheckPasswordAge method
+
+
