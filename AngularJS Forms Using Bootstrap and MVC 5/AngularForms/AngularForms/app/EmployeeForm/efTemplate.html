@@ -1,99 +1,191 @@
-﻿<form class="form-horizontal" role="form" >
-    <fieldset>
-        <legend>Basic Information</legend>
-        <div class="form-group">
-            <label for="fullName" class="col-sm-3 control-label">Name</label>
-            <div class="col-sm-9">
-                <input type="text" id="fullName" name="fullName" class="form-control"
-                       ng-model="editableEmployee.fullName" />
-            </div>
-        </div>
+﻿<div class="modal-header">
+    <h1>Create New Employee</h1>
+</div>
 
-        <div class="form-group">
-            <label for="notes" class="col-sm-3 control-label">Notes</label>
-            <div class="col-sm-9">
-                <textarea type="text" id="notes" name="notes" class="form-control" rows="5" cols="40"
-                          ng-model="editableEmployee.notes"></textarea>
-            </div>
-        </div>
+<div class="modal-body">
+    <form class="form-horizontal" name="employeeForm" novalidate role="form">
 
-        <div class="form-group">
-            <label for="department" class="col-sm-3 control-label">Department</label>
-            <div class="col-sm-9">
-                <select type="text" id="department" name="department" class="form-control"
-                        ng-model="editableEmployee.department"
-                        ng-options="dept for dept in departments"></select>
-            </div>
-        </div>
-    </fieldset>
-    <br />
-
-    <fieldset>
-        <legend>Perks</legend>
-        <div class="form-group">
-            <div class="col-sm-3 control-label">
+        <fieldset>
+            <legend>Basic Information</legend>
+            <div class="form-group" show-errors>
+                <label for="fullName" class="col-sm-3 control-label">Name</label>
+                <div class="col-sm-9">
+                    <input type="text" id="fullName" name="fullName" class="form-control"
+                           ng-model="editableEmployee.fullName" ng-required="shouldShowFullName()" 
+                           ng-minlength="3" ng-maxlength="6"
+                           ng-pattern="/^A/"/>
+                    <span class="help-block" ng-if="employeeForm.fullName.$error.required">Full Name is required</span>
+                    <span class="help-block" ng-if="employeeForm.fullName.$error.pattern">Full Name must start with A</span>
+                    <span class="help-block" ng-if="employeeForm.fullName.$error.minlength">Full Name must be at least 3 characters</span>
+                    <span class="help-block" ng-if="employeeForm.fullName.$error.maxlength">Full Name must be at most 6 characters</span>
+                </div>
             </div>
 
-            <div class="col-sm-9 ">
+            <div class="form-group" show-errors>
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" id="email" name="email" class="form-control"
+                           ng-model="editableEmployee.email" ng-required="true" />
+                    <span class="help-block" ng-if="employeeForm.email.$error">A valid email is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="notes" class="col-sm-3 control-label">Notes</label>
+                <div class="col-sm-9">
+                    <textarea type="text" id="notes" name="notes" class="form-control" rows="5" cols="40"
+                              ng-model="editableEmployee.notes"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="department" class="col-sm-3 control-label">Department</label>
+                <div class="col-sm-9">
+                    <select type="text" id="department" name="department" class="form-control"
+                            ng-model="editableEmployee.department"
+                            ng-options="dept for dept in departments"></select>
+                </div>
+            </div>
+            <!-- 
+            <div class="form-group">
+                <label for="dateHired" class="col-sm-3 control-label">Date Hired</label>
+                <div class="col-sm-9">
+                    <datepicker name="dateHired" ng-model="editableEmployee.dateHired" >
+                    </datepicker>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="breakTime" class="col-sm-3 control-label">Break Time</label>
+                <div class="col-sm-9">
+                    <timepicker name="breakTime" ng-model="editableEmployee.breakTime">
+                    </timepicker>
+                </div>
+            </div>
+            -->
+            <div class="form-group">
+                <label for="topProgrammingLanguage" class="col-sm-3 control-label">
+                    Top Programming Language
+                </label>
+                <div class="col-sm-9">
+                    <input type="text" id="topProgrammingLanguage" name="topProgrammingLanguage"
+                           class="form-control"
+                           ng-model="editableEmployee.topProgrammingLanguage"
+                           typeahead="language for language in programmingLanguages | filter:$viewValue" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="interviewRating" class="col-sm-3 control-label">Interview Rating</label>
+                <div class="rating controll col-sm-4">
+                    <rating id="interviewRating" name="interviewRating"
+                            ng-model="interviewRating"
+                            max="10" on-hover="hoveringOver(value)" on-leave="overStar = null"/>
+                </div>
+                <div class="rating-control">
+                    <span class="label"
+                          ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                          ng-show="overStar" overstar>{{percent}}%</span>
+                </div>
+            </div>
+
+            <div class="col-sm-offset-3 col-sm-9">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" value="perkCar"
-                               ng-model="editableEmployee.perkCar" />Company Car
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="perkStock"
-                               ng-model="editableEmployee.perkStock" />Stock Options
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="perkSixWeeks"
-                               ng-model="editableEmployee.perkSixWeeks" />Six Weeks Vacation
+                        <input type="checkbox" value="isUnderNonCompete"
+                               ng-model="editableEmployee.isUnderNonCompete"/>
+                        <span tooltip="Contact Legal if you are uncertain"
+                              tooltip-placement="right"
+                              tooltip-trigger="mouseenter">
+                            Is employee under a non-compete contract?
+                        </span>
                     </label>
                 </div>
             </div>
-        </div>
-    </fieldset>
-    <br />
 
-    <fieldset>
-        <legend>Payroll Type</legend>
-        <div class="form-group">
-            <div class="col-sm-3 control-label">
+            <div class="form-group" collapse="!editableEmployee.isUnderNonCompete">
+                <label for="nonCompeteNotes" class="col-sm-3 control-label">
+                    Non-Compete Notes
+                </label>
+                <div class="col-sm-9">
+                    <textarea name="nonCompeteNotes" id="nonCompeteNotes" class="form-control" rows="5" cols="40"
+                              ng-model="editableEmployee.nonCompeteNotes"></textarea>
+                </div>
             </div>
 
-            <div class="col-sm-9 ">
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="payrollType" value="w2"
-                               ng-model="editableEmployee.payrollType" /> W-2
-                    </label><br />
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="payrollType" value="ten99"
-                               ng-model="editableEmployee.payrollType" /> 1099
-                    </label><br />
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="payrollType" value="none"
-                               ng-model="editableEmployee.payrollType" /> None
-                    </label><br />
-                </div>
-                <br />
-            </div>
-        </div>
-    </fieldset>
+        </fieldset>
+        <br />
 
+        <fieldset>
+            <legend>Perks</legend>
+            <div class="form-group">
+                <div class="col-sm-3 control-label">
+                </div>
+
+                <div class="col-sm-9 ">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="perkCar"
+                                   ng-model="editableEmployee.perkCar" />Company Car
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="perkStock"
+                                   ng-model="editableEmployee.perkStock" />Stock Options
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="perkSixWeeks"
+                                   ng-model="editableEmployee.perkSixWeeks" />Six Weeks Vacation
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        <fieldset>
+            <legend>Payroll Type</legend>
+            <div class="form-group">
+                <div class="col-sm-3 control-label">
+                </div>
+
+                <div class="col-sm-9 ">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="payrollType" value="w2"
+                                   ng-model="editableEmployee.payrollType" /> W-2
+                        </label><br />
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="payrollType" value="ten99"
+                                   ng-model="editableEmployee.payrollType" /> 1099
+                        </label><br />
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="payrollType" value="none"
+                                   ng-model="editableEmployee.payrollType" /> None
+                        </label><br />
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </fieldset>
+
+    </form>
+</div>
+
+<div class="modal-footer">
     <div class="col-sm-offset-3 col-sm-9">
-        <input type="button" class="btn btn-default" value="Cancel" 
-               ng-click="cancelForm()"/>
-        <input type="submit" class="btn btn-primary" value="Submit" 
-               ng-click="submitForm()"/>
+        <input type="button" class="btn btn-default" value="Cancel"
+               ng-click="cancelForm()" />
+        <input type="submit" class="btn btn-primary" value="Submit"
+               ng-click="submitForm()" />
+        <input type="reset" class="btn btn-warning" value="Reset"
+               ng-click="resetForm()" />
     </div>
-
-
-</form>
+</div>

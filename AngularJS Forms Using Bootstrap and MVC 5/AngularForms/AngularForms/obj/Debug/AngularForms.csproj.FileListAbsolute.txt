@@ -4,3 +4,9 @@ C:\Users\louie\Desktop\AngularForms\AngularForms\bin\AngularForms.pdb
 C:\Users\louie\Desktop\AngularForms\AngularForms\obj\Debug\AngularForms.csprojResolveAssemblyReference.cache
 C:\Users\louie\Desktop\AngularForms\AngularForms\obj\Debug\AngularForms.dll
 C:\Users\louie\Desktop\AngularForms\AngularForms\obj\Debug\AngularForms.pdb
+C:\Users\louie\Desktop\Pluralsight\AngularJS Forms Using Bootstrap and MVC 5\AngularForms\AngularForms\bin\AngularForms.dll.config
+C:\Users\louie\Desktop\Pluralsight\AngularJS Forms Using Bootstrap and MVC 5\AngularForms\AngularForms\bin\AngularForms.dll
+C:\Users\louie\Desktop\Pluralsight\AngularJS Forms Using Bootstrap and MVC 5\AngularForms\AngularForms\bin\AngularForms.pdb
+C:\Users\louie\Desktop\Pluralsight\AngularJS Forms Using Bootstrap and MVC 5\AngularForms\AngularForms\obj\Debug\AngularForms.csprojResolveAssemblyReference.cache
+C:\Users\louie\Desktop\Pluralsight\AngularJS Forms Using Bootstrap and MVC 5\AngularForms\AngularForms\obj\Debug\AngularForms.dll
+C:\Users\louie\Desktop\Pluralsight\AngularJS Forms Using Bootstrap and MVC 5\AngularForms\AngularForms\obj\Debug\AngularForms.pdb
